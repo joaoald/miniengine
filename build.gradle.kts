@@ -1,10 +1,11 @@
 plugins {
     kotlin("jvm") version "2.4.0"
     id("com.gradleup.shadow") version "9.6.1"
+    id("maven-publish")
 }
 
 group = "dev.akkih"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -21,4 +22,18 @@ dependencies {
 
 kotlin {
     jvmToolchain(25)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["java"])
+
+                groupId = "dev.akkih"
+                artifactId = "miniengine"
+                version = project.version.toString()
+            }
+        }
+    }
 }
