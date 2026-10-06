@@ -22,15 +22,11 @@ MiniEngine handles the common boilerplate for minigames:
 - **Player tracking**: Keeps track of alive players, spectators, and winners, with built-in state restoration on join/leave.
 - **Scoped events**: Register Bukkit listeners that automatically filter by game phase, arena world, and participant status.
 
----
-
 ## Requirements
 
 - **Java 25**
 - **PaperMC 26.1.2**
 - **[AdvancedSlimePaper](https://github.com/InfernalSuite/AdvancedSlimePaper)** installed on the server
-
----
 
 ## Game Loop
 
@@ -56,13 +52,9 @@ Phases configure baseline interaction rules:
 | `allowBlockPlace` | `false` | Blocked outside permitted phases. |
 | `allowHunger` | `false` | Cancels food level depletion outside permitted phases. |
 
----
-
 ## Quickstart
 
 See [QUICKSTART.md](QUICKSTART.md) for an example of setting up a game class and running it inside a plugin.
-
----
 
 ## API Reference
 
@@ -84,8 +76,6 @@ See [QUICKSTART.md](QUICKSTART.md) for an example of setting up a game class and
 | `isParticipating(player)` | Returns whether a player is currently in the game (alive or spectating). |
 | `sendEvent(event)` | Transitions the game to the next phase based on the given `GameEvent`. |
 | `on<E : Event>(*phases) { ... }` | Registers a listener that only triggers for participants inside the arena during the specified phases. |
-
----
 
 ## License
 
